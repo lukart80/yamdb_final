@@ -5,7 +5,7 @@ class CustomMixin(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.DestroyModelMixin,
-    viewsets.GenericViewSet):
-
+    viewsets.GenericViewSet
+):
     class Meta:
         abstract = True

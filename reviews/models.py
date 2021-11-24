@@ -88,7 +88,6 @@ class Title(models.Model):
         super().save(*args, **kwargs)
 
 
-
 class Review(models.Model):
     """Модлель для обзоров."""
     SCORE_CHOICES = [
