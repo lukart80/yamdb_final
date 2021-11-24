@@ -4,7 +4,7 @@ on: [push]
 jobs:
   tests:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up python
@@ -19,6 +19,13 @@ jobs:
     - name: Test with flake8 and pytest
       run: |
         python -m flake8
+        touch .env
+        echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+        echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+        echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+        echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+        echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+        echo DB_PORT=${{ secrets.DB_PORT }} >> .env
         pytest
   build:
     name: Push docker image to DockerHub
@@ -54,7 +61,7 @@ jobs:
           sudo docker pull <имя-пользователя>/<имя-репозитория>
           sudo docker-compose stop
           sudo docker-compose rm web
-          touch .env 
+          touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
           echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
