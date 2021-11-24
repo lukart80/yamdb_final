@@ -58,7 +58,7 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull <имя-пользователя>/<имя-репозитория>
+          sudo docker pull lukart80/yamdb
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
