@@ -50,4 +50,4 @@ python3 manage.py createsuperuser
 python3 manage.py loaddata fixtures.json
 ```
 _________________________________
-Проект будет запущен на http://127.0.0.1/
+
